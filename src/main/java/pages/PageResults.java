@@ -15,6 +15,47 @@ public class PageResults extends BannerHeader{
 	
 	private WebElement itemSelected;
 	
+	
+	private boolean checkItemsProps() {
+		boolean check = true;
+		int i=0;
+		while(i<itemsResultList.size() && check) {
+			itemSelected = itemsResultList.get(i);
+			System.out.println("Check item " + i + " ... :");
+			check = checkItemProps();
+			i++;
+		}
+		if(check) {
+			return true;
+		} else return false;
+	}
+	
+	private boolean checkItemProps() {
+		int checkPropsNumber = 0;
+		System.out.println("checking img ...");
+		if(!getImageItemSelected().getAttribute("src").isBlank()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking title ...");
+		if(!getTitleItemSelected().getText().isBlank()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking price ...");
+		if(!getPriceItemSelected().getText().isBlank()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking button ...");
+		if(!getAddToCartButton().getText().isBlank()) {
+			checkPropsNumber++;
+		}
+		
+		if(checkPropsNumber == 4) {
+			return true;
+		} else return false;
+		
+	}
+	
+	
 	public void setItemSelected(int itemIndex) {
 		itemSelected = itemsResultList.get(itemIndex);
 	}

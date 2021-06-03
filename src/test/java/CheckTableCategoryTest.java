@@ -10,6 +10,9 @@ public class CheckTableCategoryTest extends AbstractTest {
 	
 
 	private String URL = "http://localhost:8080/shopizer";
+	
+	
+	private String category1 = "Tables";
 
 	@Before
 	public void setup() {
@@ -24,5 +27,7 @@ public class CheckTableCategoryTest extends AbstractTest {
 		driver.manage().window().maximize();
 		
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
+		page_results.clickOnCategoryByName(category1);
+		
 	}
 }

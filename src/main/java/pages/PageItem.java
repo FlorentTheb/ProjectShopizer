@@ -5,6 +5,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class PageItem extends BannerHeader{
 	
+	@FindBy(tagName = "//*[@id='view1']/a/img")
+	private WebElement itemImage;
+	
 	@FindBy(tagName = "h3")
 	private WebElement itemTitle;
 	
@@ -55,6 +58,9 @@ public class PageItem extends BannerHeader{
 	public WebElement getAddToCartButton() {
 		return addToCartButton;
 	}
-	
+
+	public String getItemImage() {
+		return itemImage.getAttribute("src");
+	}
 	
 }

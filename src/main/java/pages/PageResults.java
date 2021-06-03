@@ -12,6 +12,9 @@ public class PageResults extends BannerHeader{
 
 	@FindBy(xpath = "//*[not(@id='hiddenProductsContainer')]/div/div/a/h3[@itemprop='name']/parent::a/parent::div/parent::div")
 	private List<WebElement> itemsResultList;
+
+	@FindBy(xpath = "//h3[contains(text(), 'Collection')]/following-sibling::ul")
+	private WebElement collection;
 	
 	private WebElement itemSelected;
 	
@@ -53,6 +56,10 @@ public class PageResults extends BannerHeader{
 			return true;
 		} else return false;
 		
+	}
+	
+	public void clickOnCollectionItemByName(String collectionName) {
+		collection.findElement(By.xpath("//a[contains(text(), '" + collectionName + "')]")).click();
 	}
 	
 	

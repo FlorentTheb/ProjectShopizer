@@ -15,6 +15,7 @@ public class CheckTableCategoryTest extends AbstractTest {
 	
 	
 	private String category1 = "Tables";
+	private String collectionItem1 = "Asian Wood";
 
 	@Before
 	public void setup() {
@@ -31,5 +32,7 @@ public class CheckTableCategoryTest extends AbstractTest {
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
 		page_results.clickOnCategoryByName(category1);
 		assertEquals(true, page_results.checkItemsProps());
+		
+		
 	}
 }

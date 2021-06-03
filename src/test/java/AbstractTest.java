@@ -12,9 +12,9 @@ public abstract class AbstractTest {
 	protected String login = "ACID";
 	protected String passwd = "ACID";
 	
-	protected String ChromeURL = "http://localhost:8080/shopizer";
-	protected String FirefoxURL = "http://localhost:8080/shopizer";
-	protected String IEURL = "http://localhost:8080/shopizer";
+//	protected String ChromeURL = "http://localhost:8080/shopizer";
+//	protected String FirefoxURL = "http://localhost:8080/shopizer";
+//	protected String IEURL = "http://localhost:8080/shopizer";
 
 	public void selectBrowser(EBrowser i) {
 		if (i.equals(EBrowser.chrome)) {
@@ -43,25 +43,24 @@ public abstract class AbstractTest {
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
 			driver = new ChromeDriver();
-			driver.get(ChromeURL);
+//			driver.get(ChromeURL);
 			break;
 		case "firefox":
 			System.setProperty("webdriver.gecko.driver", "src/main/resources/driver/geckodriver.exe");
 			driver = new FirefoxDriver();
-			driver.get(FirefoxURL);
+//			driver.get(FirefoxURL);
 			break;
 		case "edge":
 			System.setProperty("webdriver.edge.driver", "src/main/resources/driver/msedgedriver.exe");
 			driver = new EdgeDriver();
-			driver.get(IEURL);
+//			driver.get(IEURL);
 			break;
 		default:
 			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
 			driver = new ChromeDriver();
-			driver.get(ChromeURL);
 			break;
 		}
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//		driver.manage().window().maximize();
 	}
 }

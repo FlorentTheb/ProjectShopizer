@@ -19,6 +19,8 @@ public class BannerHeader {
 	@FindBy(xpath = "//*[@id='miniCartDetails']")
 	private List<WebElement> miniCartDetails;
 	
+	@FindBy(xpath = "//*[@class='mainmenu hidden-xs']/nav/ul/li/a")
+	private List<WebElement> categoriesList;
 	
 	private void hoverShoppingCart(WebDriver driver) {
 		
@@ -34,6 +36,15 @@ public class BannerHeader {
 		hoverShoppingCart(driver);
 		paymentBt.click();
 		return PageFactory.initElements(driver, PageShoppingCart.class);
+	}
+	
+	public void clickOnCategoryByName(String categoryName) {
+
+		for(int i=0; i<categoriesList.size(); i++) {
+			if(categoriesList.get(i).getText().equals(categoryName)) {
+				categoriesList.get(i).click();
+			}
+		}
 	}
 	
 	

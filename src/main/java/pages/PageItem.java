@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageItem {
+public class PageItem extends BannerHeader{
 	
 	@FindBy(tagName = "h3")
 	private WebElement itemTitle;

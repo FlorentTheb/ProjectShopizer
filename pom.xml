@@ -3,7 +3,7 @@
   <groupId>project.shopizer</groupId>
   <artifactId>ShopizerProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+  <name>Shopizer</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

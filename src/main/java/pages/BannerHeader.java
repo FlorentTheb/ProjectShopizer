@@ -20,19 +20,18 @@ public class BannerHeader {
 	private List<WebElement> miniCartDetails;
 	
 	
-	private void flyoverShoppingCart(WebDriver driver) {
+	private void hoverShoppingCart(WebDriver driver) {
 		
 		Actions actionProvider = new Actions(driver);
 		actionProvider.moveToElement(ShoppingCartBt).build().perform();
 	}
 	
 	public List<WebElement> getMiniCartDetails(WebDriver driver) {
-		flyoverShoppingCart(driver);
 		return miniCartDetails;
 	}
 	
 	public PageShoppingCart clickpaymentBt(WebDriver driver) {
-		flyoverShoppingCart(driver);
+		hoverShoppingCart(driver);
 		paymentBt.click();
 		return PageFactory.initElements(driver, PageShoppingCart.class);
 	}

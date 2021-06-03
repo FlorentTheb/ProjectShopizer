@@ -46,6 +46,10 @@ public abstract class AbstractTest {
 			System.setProperty("webdriver.edge.driver", "src/main/resources/driver/msedgedriver.exe");
 			driver = new EdgeDriver();
 			break;
+		default:
+			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
+			driver = new ChromeDriver();
+			break;
 		}
 //		if(BROWSER == "chrome") {
 //			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");

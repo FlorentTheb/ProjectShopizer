@@ -33,6 +33,35 @@ public class PageItem extends BannerHeader{
 		addToCartButton.click();
 	}
 	
+	public boolean checkItemProps() {
+		int checkPropsNumber = 0;
+		System.out.println("Check Item select :\nchecking img ...");
+		if(!getItemImage().isEmpty()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking title ...");
+		if(!getItemTitle().getText().isEmpty()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking price ...");
+		if(!getItemPrice().getText().isEmpty() || (!getItemPrevPrice().getText().isEmpty() && !getItemSpecialPrice().getText().isEmpty())) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking rating ...");
+		if(!getItemRating().getAttribute("value").isEmpty()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking button ...");
+		if(!getAddToCartButton().getText().isEmpty()) {
+			checkPropsNumber++;
+		}
+		
+		if(checkPropsNumber == 4) {
+			return true;
+		} else return false;
+		
+	}
+	
 	
 	/* --------- Getters ----------- */
 	public WebElement getItemPrevPrice() {

@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
+import pages.PageItem;
 import pages.PageResults;
 
 public class CheckTableCategoryTest extends AbstractTest {
@@ -31,8 +32,14 @@ public class CheckTableCategoryTest extends AbstractTest {
 		
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
 		page_results.clickOnCategoryByName(category1);
+		
 		assertEquals(true, page_results.checkItemsProps());
 		
+		page_results.clickOnCollectionItemByName(category1);
+		
+		page_results.setItemSelected(0);
+		PageItem page_item = page_results.clickOnItemSelected(driver);
+		assertEquals(true, page_item.checkItemProps());
 		
 	}
 }

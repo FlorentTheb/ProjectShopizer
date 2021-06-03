@@ -1,3 +1,5 @@
+import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
@@ -28,6 +30,6 @@ public class CheckTableCategoryTest extends AbstractTest {
 		
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
 		page_results.clickOnCategoryByName(category1);
-		
+		assertEquals(true, page_results.checkItemsProps());
 	}
 }

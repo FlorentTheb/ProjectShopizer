@@ -16,7 +16,7 @@ public class PageResults extends BannerHeader{
 	private WebElement itemSelected;
 	
 	
-	private boolean checkItemsProps() {
+	public boolean checkItemsProps() {
 		boolean check = true;
 		int i=0;
 		while(i<itemsResultList.size() && check) {

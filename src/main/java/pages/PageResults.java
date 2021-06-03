@@ -36,19 +36,19 @@ public class PageResults extends BannerHeader{
 	private boolean checkItemProps() {
 		int checkPropsNumber = 0;
 		System.out.println("checking img ...");
-		if(!getImageItemSelected().getAttribute("src").isBlank()) {
+		if(!getImageItemSelected().getAttribute("src").isEmpty()) {
 			checkPropsNumber++;
 		}
 		System.out.println("checking title ...");
-		if(!getTitleItemSelected().getText().isBlank()) {
+		if(!getTitleItemSelected().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
 		System.out.println("checking price ...");
-		if(!getPriceItemSelected().getText().isBlank()) {
+		if(!getPriceItemSelected().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
 		System.out.println("checking button ...");
-		if(!getAddToCartButton().getText().isBlank()) {
+		if(!getAddToCartButton().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
 		

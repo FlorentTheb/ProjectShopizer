@@ -93,6 +93,10 @@ public class PageResults extends BannerHeader{
 		return itemSelected.findElement(By.xpath("//a[@class='addToCart']"));
 	}
 	
+	public void clickAddToCartButton() {
+		itemSelected.findElement(By.xpath("//a[@class='addToCart']")).click();
+	}
+	
 	public WebElement getImageItemSelected() {
 		return itemSelected.findElement(By.xpath("/div/a/img"));
 	}

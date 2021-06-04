@@ -20,7 +20,7 @@ public class CheckTableCategoryTest extends AbstractTest {
 	
 
 	private String category2 = "BEDROOM";
-	private String item2 = "Compact night table";
+	private String item2 = "Compact Night Table";
 
 	@Before
 	public void setup() {

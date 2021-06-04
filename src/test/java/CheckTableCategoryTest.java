@@ -26,7 +26,7 @@ public class CheckTableCategoryTest extends AbstractTest {
 	}
 	
 	@Test
-	public void test() {
+	public void test() throws InterruptedException {
 
 		driver.get(shopizerURL);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -38,22 +38,27 @@ public class CheckTableCategoryTest extends AbstractTest {
 		/* -------- TABLES test --------- */
 		page_results = page_results.clickOnCategoryByName(driver, category1);
 		assertEquals(true, page_results.checkItemsProps());
-		
+
+		Thread.sleep(3000);
 		page_results.clickOnCollectionItemByName(collectionItem1);
 		
 		page_results.setItemSelected(0);
+		Thread.sleep(3000);
 		PageItem page_item = page_results.clickOnItemSelected(driver);
 		assertEquals(true, page_item.checkItemProps(driver));
 		
 		
 
 		/* -------- BEDROOM test --------- */
+		Thread.sleep(3000);
 		page_results = page_item.clickOnCategoryByName(driver, category2);
 		assertEquals(true, page_results.checkItemsProps());
 		
 		page_results.setItemSelected(item2);
+		Thread.sleep(3000);
 		page_item = page_results.clickOnItemSelected(driver);
 		assertEquals(true, page_item.checkItemProps(driver));
+		System.out.println("TEST DONE");
 	}
 	
 	@After

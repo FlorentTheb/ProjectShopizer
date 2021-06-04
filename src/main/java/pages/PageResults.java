@@ -3,6 +3,7 @@ package pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -58,9 +59,9 @@ public class PageResults extends BannerHeader{
 	
 	public void clickOnCollectionItemByName(WebDriver driver, String collectionName) throws InterruptedException {
 		WebElement collectionSelected = collection.findElement(By.xpath("//a[contains(text(), '" + collectionName + "')]"));
-		Actions actions = new Actions(driver);
-		actions.moveToElement(collectionSelected);
 		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,250)", "");
 		collectionSelected.click();
 	}
 	
@@ -83,11 +84,11 @@ public class PageResults extends BannerHeader{
 	
 	public PageItem clickOnItemSelected(WebDriver driver) throws InterruptedException {
 		WebElement itemToClick = itemSelected.findElement(By.xpath("div[@class='product-content text-center']/a"));
-		Actions actions = new Actions(driver);
-		actions.moveToElement(itemToClick);
+		System.out.println("Scroll time !!");
 		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,250)", "");
 		itemToClick.click();
-		
 		return PageFactory.initElements(driver, PageItem.class);
 	}
 	
@@ -105,9 +106,9 @@ public class PageResults extends BannerHeader{
 	
 	public void clickAddToCartButton(WebDriver driver) throws InterruptedException {
 		WebElement addToCartButton = itemSelected.findElement(By.xpath("div/div/div/a[@class='addToCart']"));
-		Actions actions = new Actions(driver);
-		actions.moveToElement(addToCartButton);
 		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,250)", "");
 		addToCartButton.click();
 	}
 	

@@ -3,6 +3,7 @@ package pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -36,8 +37,8 @@ public class PageShoppingCart {
 	}
 	
 	public Pagecheckout clickOnBtMakePayment(WebDriver driver) throws InterruptedException {
-		Actions actions = new Actions(driver);
-		actions.moveToElement(makePaymenteBt);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,250)", "");
 		Thread.sleep(3000);
 		makePaymenteBt.click();
 		return PageFactory.initElements(driver, Pagecheckout.class);

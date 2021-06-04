@@ -56,8 +56,8 @@ public class CheckTableCategoryTest extends AbstractTest {
 		assertEquals(true, page_item.checkItemProps(driver));
 	}
 	
-	@After
-	public void teardown() {
-		driver.quit();
-	}
+//	@After
+//	public void teardown() {
+//		driver.quit();
+//	}
 }

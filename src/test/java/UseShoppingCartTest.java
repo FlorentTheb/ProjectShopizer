@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
@@ -48,9 +49,10 @@ public class UseShoppingCartTest extends AbstractTest {
 		
 		Thread.sleep(2000);
 		Pagecheckout page_Checkout = page_ShoppingCart.clickOnBtMakePayment(driver);
-		
-		
+	}
 	
-		
+	@After
+	public void teardown() {
+		driver.quit();
 	}
 }

@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
@@ -53,5 +54,10 @@ public class CheckTableCategoryTest extends AbstractTest {
 		page_results.setItemSelected(item2);
 		page_item = page_results.clickOnItemSelected(driver);
 		assertEquals(true, page_item.checkItemProps(driver));
+	}
+	
+	@After
+	public void teardown() {
+		driver.quit();
 	}
 }

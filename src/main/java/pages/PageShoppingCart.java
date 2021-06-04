@@ -121,10 +121,10 @@ public class PageShoppingCart {
 	}
 	
 	public WebElement getPriceItemSelected() {
-		return itemSelected.findElement(By.xpath("/td[@data-th='Prix']/strong"));
+		return itemSelected.findElement(By.xpath("td[@data-th='Prix']/strong"));
 	}
 	public WebElement getTotalPriceItemSelected() {
-		return itemSelected.findElement(By.xpath("/td[@data-th='Total']/strong"));
+		return itemSelected.findElement(By.xpath("td[@data-th='Total']/strong"));
 	}
 	
 	public WebElement getImageItemSelected() {

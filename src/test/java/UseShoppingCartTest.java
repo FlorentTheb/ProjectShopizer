@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.PageResults;
 import pages.PageShoppingCart;
@@ -33,6 +34,7 @@ public class UseShoppingCartTest extends AbstractTest {
 		
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
 		for(int i=0;i!=itemName.length;i++) {
+			System.out.println(itemName[i]);
 			page_results.setItemSelected(itemName[i]);
 			page_results.clickAddToCartButton();
 		}

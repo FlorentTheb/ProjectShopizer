@@ -1,3 +1,5 @@
+import static org.junit.Assert.*;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -6,6 +8,8 @@ import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
 import pages.PageResults;
+import pages.PageShoppingCart;
+import pages.Pagecheckout;
 
 
 public class UseShoppingCartTest extends AbstractTest {
@@ -30,8 +34,22 @@ public class UseShoppingCartTest extends AbstractTest {
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
 		for(int i = itemName.length;i!=itemName.length;i++) {
 			page_results.setItemSelected(itemName[i]);
+			page_results.clickAddToCartButton();
 		}
 		
+		PageShoppingCart page_ShoppingCart = page_results.clickpaymentBt(driver);
+		page_ShoppingCart.getItemsList();
+		
+		assertTrue("Image, title, price, or total price not present",page_ShoppingCart.checkItemsProps()); 
+		
+		page_ShoppingCart.setMultipleQuantityItems(2);
+		
+		page_ShoppingCart.clickOnBtRecalculate();
+		
+		Pagecheckout page_Checkout = page_ShoppingCart.clickOnBtMakePayment(driver);
+		
+		
+	
 		
 	}
 }

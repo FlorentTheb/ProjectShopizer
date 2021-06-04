@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class PageItem extends BannerHeader{
 	
-	@FindBy(tagName = "//*[@id='view1']/a/img")
+	@FindBy(xpath = "//*[@id='view1']/a/img")
 	private WebElement itemImage;
 	
 	@FindBy(tagName = "h3")
@@ -31,6 +31,35 @@ public class PageItem extends BannerHeader{
 	/* --------- Methods ----------- */
 	public void clickOnAddToCartButton() {
 		addToCartButton.click();
+	}
+	
+	public boolean checkItemProps() {
+		int checkPropsNumber = 0;
+		System.out.println("\nCheck Item select :\nchecking img ...");
+		if(!getItemImage().isEmpty()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking title ...");
+		if(!getItemTitle().getText().isEmpty()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking price ...");
+		if(!getItemPrice().getText().isEmpty() || (!getItemPrevPrice().getText().isEmpty() && !getItemSpecialPrice().getText().isEmpty())) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking rating ...");
+		if(!getItemRating().getAttribute("value").isEmpty()) {
+			checkPropsNumber++;
+		}
+		System.out.println("checking button ...");
+		if(!getAddToCartButton().getText().isEmpty()) {
+			checkPropsNumber++;
+		}
+		
+		if(checkPropsNumber == 4) {
+			return true;
+		} else return false;
+		
 	}
 	
 	

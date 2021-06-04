@@ -38,7 +38,8 @@ public abstract class AbstractTest {
 	}
 
 	public void getBrowserFromProperty() {
-		String BROWSER = System.getProperty("browser");
+//		String BROWSER = System.getProperty("browser");
+		String BROWSER = "chrome";
 		switch (BROWSER) {
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");

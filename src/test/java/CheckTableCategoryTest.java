@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
+import pages.PageItem;
 import pages.PageResults;
 
 public class CheckTableCategoryTest extends AbstractTest {
@@ -14,8 +15,12 @@ public class CheckTableCategoryTest extends AbstractTest {
 	private String URL = "http://localhost:8080/shopizer";
 	
 	
-	private String category1 = "Tables";
+	private String category1 = "TABLES";
 	private String collectionItem1 = "Asian Wood";
+	
+
+	private String category2 = "BEDROOM";
+	private String item2 = "Compact night table";
 
 	@Before
 	public void setup() {
@@ -30,9 +35,26 @@ public class CheckTableCategoryTest extends AbstractTest {
 		driver.manage().window().maximize();
 		
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
-		page_results.clickOnCategoryByName(category1);
+		
+		
+		/* -------- TABLES test --------- */
+		page_results = page_results.clickOnCategoryByName(driver, category1);
 		assertEquals(true, page_results.checkItemsProps());
 		
+		page_results.clickOnCollectionItemByName(collectionItem1);
 		
+		page_results.setItemSelected(0);
+		PageItem page_item = page_results.clickOnItemSelected(driver);
+		assertEquals(true, page_item.checkItemProps());
+		
+		
+
+		/* -------- BEDROOM test --------- */
+		page_results = page_item.clickOnCategoryByName(driver, category2);
+		assertEquals(true, page_results.checkItemsProps());
+		
+		page_results.setItemSelected(item2);
+		page_item = page_results.clickOnItemSelected(driver);
+		assertEquals(true, page_item.checkItemProps());
 	}
 }

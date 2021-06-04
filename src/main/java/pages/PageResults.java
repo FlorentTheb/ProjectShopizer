@@ -83,8 +83,12 @@ public class PageResults extends BannerHeader{
 	}
 	
 	public PageItem clickOnItemSelected(WebDriver driver) throws InterruptedException {
+<<<<<<< HEAD
 		WebElement itemToClick = itemSelected.findElement(By.xpath("div[@class='product-content text-center']/a"));
 		System.out.println("Scroll time !!");
+=======
+		WebElement itemToClick = itemSelected.findElement(By.xpath("div[@class='product-content text-center']/a/h3"));
+>>>>>>> 22436d920f47aec3f61c47b3eb814d98af8c6d8d
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,250)", "");

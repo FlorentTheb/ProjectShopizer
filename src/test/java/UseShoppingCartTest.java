@@ -35,6 +35,7 @@ public class UseShoppingCartTest extends AbstractTest {
 		for(int i=0;i!=itemName.length;i++) {
 			System.out.println(itemName[i]);
 			page_results.setItemSelected(itemName[i]);
+			Thread.sleep(7000);
 			page_results.clickAddToCartButton(driver);
 		}
 		

@@ -51,8 +51,8 @@ public class UseShoppingCartTest extends AbstractTest {
 		Pagecheckout page_Checkout = page_ShoppingCart.clickOnBtMakePayment(driver);
 	}
 	
-	@After
-	public void teardown() {
-		driver.quit();
-	}
+//	@After
+//	public void teardown() {
+//		driver.quit();
+//	}
 }

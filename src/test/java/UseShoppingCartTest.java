@@ -50,10 +50,11 @@ public class UseShoppingCartTest extends AbstractTest {
 		
 		Thread.sleep(2000);
 		Pagecheckout page_Checkout = page_ShoppingCart.clickOnBtMakePayment(driver);
+		System.out.println("TEST2 DONE");
 	}
 	
-//	@After
-//	public void teardown() {
-//		driver.quit();
-//	}
+	@After
+	public void teardown() {
+		driver.quit();
+	}
 }

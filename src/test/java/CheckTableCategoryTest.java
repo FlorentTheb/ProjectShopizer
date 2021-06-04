@@ -11,9 +11,6 @@ import pages.PageResults;
 
 public class CheckTableCategoryTest extends AbstractTest {
 	
-
-	private String URL = "http://localhost:8080/shopizer";
-	
 	
 	private String category1 = "TABLES";
 	private String collectionItem1 = "Asian Wood";
@@ -30,7 +27,7 @@ public class CheckTableCategoryTest extends AbstractTest {
 	@Test
 	public void test() {
 
-		driver.get(URL);
+		driver.get(shopizerURL);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		

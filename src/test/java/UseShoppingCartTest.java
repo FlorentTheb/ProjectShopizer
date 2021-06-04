@@ -15,9 +15,7 @@ import pages.Pagecheckout;
 
 public class UseShoppingCartTest extends AbstractTest {
 	
-	String URL="http://192.168.1.72:8080/shopizer/";
 	String itemName[]= {"Compact Night Table","Edge Console"};
-	
 	
 	@Before
 	public void setup() {
@@ -28,7 +26,7 @@ public class UseShoppingCartTest extends AbstractTest {
 	public void run() throws InterruptedException {
 		
 		
-		driver.get(URL);
+		driver.get(shopizerURL);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		

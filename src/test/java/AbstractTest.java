@@ -12,6 +12,8 @@ public abstract class AbstractTest {
 	protected String login = "ACID";
 	protected String passwd = "ACID";
 	
+	protected String shopizerURL;
+	
 //	protected String ChromeURL = "http://localhost:8080/shopizer";
 //	protected String FirefoxURL = "http://localhost:8080/shopizer";
 //	protected String IEURL = "http://localhost:8080/shopizer";
@@ -38,8 +40,8 @@ public abstract class AbstractTest {
 	}
 
 	public void getBrowserFromProperty() {
-//		String BROWSER = System.getProperty("browser");
-		String BROWSER = "chrome";
+		String BROWSER = System.getProperty("browser");
+		shopizerURL = System.getProperty("shopizerURL");
 		switch (BROWSER) {
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");

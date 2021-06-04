@@ -86,16 +86,15 @@ public class PageResults extends BannerHeader{
 	}
 	
 	public WebElement getPriceItemSelected() {
-		return itemSelected.findElement(By.xpath("//h4/span"));
+		return itemSelected.findElement(By.xpath("div/h4/span"));
 	}
 	
 	public WebElement getAddToCartButton() {
-		return itemSelected.findElement(By.xpath("//a[@class='addToCart']"));
+		return itemSelected.findElement(By.xpath("div/div/div/a[@class='addToCart']"));
 	}
 	
 	public void clickAddToCartButton() {
-		System.out.println(itemSelected.toString());
-		itemSelected.findElement(By.xpath("//a[@class='addToCart']")).click();
+		itemSelected.findElement(By.xpath("div/div/div/a[@class='addToCart']")).click();
 	}
 	
 	public WebElement getImageItemSelected() {

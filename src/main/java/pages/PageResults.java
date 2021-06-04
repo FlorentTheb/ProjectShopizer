@@ -71,9 +71,10 @@ public class PageResults extends BannerHeader{
 		int i = 0;
 		boolean checkOK = true;
 		while(i<itemsResultList.size() && checkOK) {
+			System.out.println("item1 : " + itemsResultList.get(i));
 			if(itemsResultList.get(i).findElement(By.xpath("//h3")).getText().equals(itemName)) {
 				itemSelected = itemsResultList.get(i);
-				System.out.println("item : " + itemSelected);
+				System.out.println("item2 : " + itemSelected);
 				checkOK = false;
 			}
 			i++;

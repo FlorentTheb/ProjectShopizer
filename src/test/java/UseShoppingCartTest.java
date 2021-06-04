@@ -15,7 +15,7 @@ import pages.Pagecheckout;
 public class UseShoppingCartTest extends AbstractTest {
 	
 	String URL="http://192.168.1.72:8080/shopizer/";
-	String itemName[]= {"Compact night table","Edge console"};
+	String itemName[]= {"Compact Night Table","Edge Console"};
 	
 	
 	@Before
@@ -32,7 +32,7 @@ public class UseShoppingCartTest extends AbstractTest {
 		driver.manage().window().maximize();
 		
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
-		for(int i = itemName.length;i!=itemName.length;i++) {
+		for(int i=0;i!=itemName.length;i++) {
 			page_results.setItemSelected(itemName[i]);
 			page_results.clickAddToCartButton();
 		}

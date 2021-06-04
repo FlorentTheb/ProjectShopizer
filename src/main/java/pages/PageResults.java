@@ -94,6 +94,7 @@ public class PageResults extends BannerHeader{
 	}
 	
 	public void clickAddToCartButton() {
+		System.out.println(itemSelected.toString());
 		itemSelected.findElement(By.xpath("//a[@class='addToCart']")).click();
 	}
 	

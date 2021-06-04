@@ -38,13 +38,17 @@ public class BannerHeader {
 		return PageFactory.initElements(driver, PageShoppingCart.class);
 	}
 	
-	public void clickOnCategoryByName(String categoryName) {
-
-		for(int i=0; i<categoriesList.size(); i++) {
+	public PageResults clickOnCategoryByName(WebDriver driver, String categoryName) {
+		boolean clickOK = true;
+		int i = 0;
+		while(i<categoriesList.size() && clickOK) {
 			if(categoriesList.get(i).getText().equals(categoryName)) {
 				categoriesList.get(i).click();
+				clickOK = false;
 			}
+			i++;
 		}
+		return PageFactory.initElements(driver, PageResults.class);
 	}
 	
 	

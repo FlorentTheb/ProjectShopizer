@@ -23,8 +23,8 @@ public class PageResults extends BannerHeader{
 		boolean check = true;
 		int i=0;
 		while(i<itemsResultList.size() && check) {
-			itemSelected = itemsResultList.get(i);
-			System.out.println("Check item " + i + " ... :");
+			setItemSelected(i);
+			System.out.println("\nCheck item " + i + " ... :");
 			check = checkItemProps();
 			i++;
 		}
@@ -68,16 +68,21 @@ public class PageResults extends BannerHeader{
 	}
 	
 	public void setItemSelected(String itemName) {
-		for(int i=0; i<itemsResultList.size(); i++) {
+		int i = 0;
+		boolean checkOK = true;
+		while(i<itemsResultList.size() && checkOK) {
 			if(itemsResultList.get(i).findElement(By.xpath("//h3")).getText().equals(itemName)) {
 				itemSelected = itemsResultList.get(i);
+				System.out.println("item : " + itemSelected);
+				checkOK = false;
 			}
+			i++;
 		}
 	}
 	
 	public PageItem clickOnItemSelected(WebDriver driver) {
 		
-		itemSelected.findElement(By.xpath("/div[@class='product-content text-center']/a")).click();
+		itemSelected.findElement(By.xpath("div[@class='product-content text-center']/a")).click();
 		return PageFactory.initElements(driver, PageItem.class);
 	}
 	
@@ -98,6 +103,7 @@ public class PageResults extends BannerHeader{
 	}
 	
 	public WebElement getImageItemSelected() {
-		return itemSelected.findElement(By.xpath("/div/a/img"));
+		WebElement itemToCheck = itemSelected.findElement(By.xpath("div/a/img"));
+		return itemToCheck;
 	}
 }

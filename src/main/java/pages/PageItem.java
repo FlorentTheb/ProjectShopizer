@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class PageItem extends BannerHeader{
 	
-	@FindBy(tagName = "//*[@id='view1']/a/img")
+	@FindBy(xpath = "//*[@id='view1']/a/img")
 	private WebElement itemImage;
 	
 	@FindBy(tagName = "h3")
@@ -35,7 +35,7 @@ public class PageItem extends BannerHeader{
 	
 	public boolean checkItemProps() {
 		int checkPropsNumber = 0;
-		System.out.println("Check Item select :\nchecking img ...");
+		System.out.println("\nCheck Item select :\nchecking img ...");
 		if(!getItemImage().isEmpty()) {
 			checkPropsNumber++;
 		}

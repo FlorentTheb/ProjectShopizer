@@ -53,7 +53,6 @@ public class PageShoppingCart {
 		int i=0;
 		while(i<itemsList.size()) {
 			itemSelected = itemsQuantity.get(i);
-			System.out.println("Multiple item " + i + " ... :");
 			int valQuantity = Integer.parseInt(itemSelected.getAttribute("value"));
 			int result= valQuantity * multiple;
 			setItemsQuantity(itemSelected,result);
@@ -74,7 +73,6 @@ public class PageShoppingCart {
 		int i=0;
 		while(i<itemsList.size() && check) {
 			itemSelected = itemsList.get(i);
-			System.out.println("Check item " + i + " ... :");
 			check = checkItemProps();
 			i++;
 		}
@@ -85,23 +83,18 @@ public class PageShoppingCart {
 	
 	private boolean checkItemProps() {
 		int checkPropsNumber = 0;
-		System.out.println("checking img ...");
 		if(!getImageItemSelected().getAttribute("src").isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking title ...");
 		if(!getTitleItemSelected().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking quantity ...");
 		if(!getQuantityItemSelected().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking price ...");
 		if(!getPriceItemSelected().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking Total price ...");
 		if(!getTotalPriceItemSelected().getText().isEmpty()) {
 			checkPropsNumber++;
 		}

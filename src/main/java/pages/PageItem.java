@@ -44,7 +44,9 @@ public class PageItem extends BannerHeader{
 			checkPropsNumber++;
 		}
 		System.out.println("checking price ...");
-		if(!getItemPrice().getText().isEmpty() || (!getItemPrevPrice().getText().isEmpty() && !getItemSpecialPrice().getText().isEmpty())) {
+		if(!getItemPrevPrice().isDisplayed() && !getItemSpecialPrice().isDisplayed()) {
+			checkPropsNumber++;
+		} else if(!getItemPrice().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
 		System.out.println("checking rating ...");

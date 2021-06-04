@@ -1,6 +1,7 @@
 package pages;
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -25,7 +26,8 @@ public class BannerHeader {
 	private List<WebElement> categoriesList;
 	
 	private void hoverShoppingCart(WebDriver driver) {
-		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", ShoppingCartBt);
 		Actions actionProvider = new Actions(driver);
 		actionProvider.moveToElement(ShoppingCartBt).build().perform();
 	}

@@ -3,6 +3,7 @@ package pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -82,12 +83,9 @@ public class PageResults extends BannerHeader{
 	}
 	
 	public PageItem clickOnItemSelected(WebDriver driver) throws InterruptedException {
-		WebElement itemToClick = itemSelected.findElement(By.xpath("div[@class='product-content text-center']/a"));
-		Actions actions = new Actions(driver);
-		actions.moveToElement(itemToClick);
+		WebElement itemToClick = itemSelected.findElement(By.xpath("div[@class='product-content text-center']/a/h3"));
 		Thread.sleep(3000);
 		itemToClick.click();
-		
 		return PageFactory.initElements(driver, PageItem.class);
 	}
 	

@@ -24,7 +24,6 @@ public class PageResults extends BannerHeader{
 		int i=0;
 		while(i<itemsResultList.size() && check) {
 			setItemSelected(i);
-			System.out.println("\nCheck item " + i + " ... :");
 			check = checkItemProps();
 			i++;
 		}
@@ -35,19 +34,15 @@ public class PageResults extends BannerHeader{
 	
 	private boolean checkItemProps() {
 		int checkPropsNumber = 0;
-		System.out.println("checking img ...");
 		if(!getImageItemSelected().getAttribute("src").isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking title ...");
 		if(!getTitleItemSelected().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking price ...");
-		if(!getPriceItemSelected().getText().isEmpty()) {
+		if(!(itemSelected.findElements(By.xpath("div/h4/*")).size()<1)) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking button ...");
 		if(!getAddToCartButton().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
@@ -71,7 +66,6 @@ public class PageResults extends BannerHeader{
 		int i = 0;
 		boolean checkOK = true;
 		while(i<itemsResultList.size() && checkOK) {
-			System.out.println("item " + i + " : " + itemsResultList.get(i).findElement(By.xpath("div/a/h3")).getText());
 			if(itemsResultList.get(i).findElement(By.xpath("div/a/h3")).getText().equals(itemName)) {
 				itemSelected = itemsResultList.get(i);
 				checkOK = false;

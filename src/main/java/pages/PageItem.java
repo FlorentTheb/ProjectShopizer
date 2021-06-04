@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -26,34 +28,27 @@ public class PageItem extends BannerHeader{
 	@FindBy(xpath = "//button[contains(@class, 'addToCartButton')]")
 	private WebElement addToCartButton;
 	
-	
 
 	/* --------- Methods ----------- */
 	public void clickOnAddToCartButton() {
 		addToCartButton.click();
 	}
 	
-	public boolean checkItemProps() {
+	public boolean checkItemProps(WebDriver driver) {
 		int checkPropsNumber = 0;
-		System.out.println("\nCheck Item select :\nchecking img ...");
 		if(!getItemImage().isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking title ...");
 		if(!getItemTitle().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking price ...");
-		if(!getItemPrevPrice().isDisplayed() && !getItemSpecialPrice().isDisplayed()) {
-			checkPropsNumber++;
-		} else if(!getItemPrice().getText().isEmpty()) {
+//		!getItemPrevPrice().isDisplayed() && !getItemSpecialPrice().isDisplayed()
+		if(!(driver.findElements(By.xpath("//*[@id='productPrice']/*")).size()<1)) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking rating ...");
 		if(!getItemRating().getAttribute("value").isEmpty()) {
 			checkPropsNumber++;
 		}
-		System.out.println("checking button ...");
 		if(!getAddToCartButton().getText().isEmpty()) {
 			checkPropsNumber++;
 		}

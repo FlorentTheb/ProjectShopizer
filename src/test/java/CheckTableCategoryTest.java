@@ -45,7 +45,7 @@ public class CheckTableCategoryTest extends AbstractTest {
 		
 		page_results.setItemSelected(0);
 		PageItem page_item = page_results.clickOnItemSelected(driver);
-		assertEquals(true, page_item.checkItemProps());
+		assertEquals(true, page_item.checkItemProps(driver));
 		
 		
 
@@ -55,6 +55,6 @@ public class CheckTableCategoryTest extends AbstractTest {
 		
 		page_results.setItemSelected(item2);
 		page_item = page_results.clickOnItemSelected(driver);
-		assertEquals(true, page_item.checkItemProps());
+		assertEquals(true, page_item.checkItemProps(driver));
 	}
 }

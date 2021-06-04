@@ -33,7 +33,6 @@ public class UseShoppingCartTest extends AbstractTest {
 		
 		PageResults page_results = PageFactory.initElements(driver, PageResults.class);
 		for(int i=0;i!=itemName.length;i++) {
-			System.out.println(itemName[i]);
 			page_results.setItemSelected(itemName[i]);
 			Thread.sleep(4000);
 			page_results.clickAddToCartButton(driver);
@@ -50,7 +49,6 @@ public class UseShoppingCartTest extends AbstractTest {
 		
 		Thread.sleep(2000);
 		Pagecheckout page_Checkout = page_ShoppingCart.clickOnBtMakePayment(driver);
-		System.out.println("TEST2 DONE");
 	}
 	
 	@After

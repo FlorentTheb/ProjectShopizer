@@ -58,7 +58,6 @@ public class CheckTableCategoryTest extends AbstractTest {
 		Thread.sleep(3000);
 		page_item = page_results.clickOnItemSelected(driver);
 		assertEquals(true, page_item.checkItemProps(driver));
-		System.out.println("TEST DONE");
 	}
 	
 	@After

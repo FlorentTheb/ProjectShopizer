@@ -42,7 +42,6 @@ public class PageItem extends BannerHeader{
 		if(!getItemTitle().getText().isEmpty()) {
 			checkPropsNumber++;
 		}
-//		!getItemPrevPrice().isDisplayed() && !getItemSpecialPrice().isDisplayed()
 		if(!(driver.findElements(By.xpath("//*[@id='productPrice']/*")).size()<1)) {
 			checkPropsNumber++;
 		}

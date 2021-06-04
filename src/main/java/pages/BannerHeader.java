@@ -42,7 +42,8 @@ public class BannerHeader {
 		return PageFactory.initElements(driver, PageShoppingCart.class);
 	}
 	
-	public PageResults clickOnCategoryByName(WebDriver driver, String categoryName) {
+	public PageResults clickOnCategoryByName(WebDriver driver, String categoryName) throws InterruptedException {
+		Thread.sleep(3000);
 		boolean clickOK = true;
 		int i = 0;
 		while(i<categoriesList.size() && clickOK) {

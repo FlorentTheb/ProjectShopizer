@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -55,8 +56,12 @@ public class PageResults extends BannerHeader{
 		
 	}
 	
-	public void clickOnCollectionItemByName(String collectionName) {
-		collection.findElement(By.xpath("//a[contains(text(), '" + collectionName + "')]")).click();
+	public void clickOnCollectionItemByName(WebDriver driver, String collectionName) throws InterruptedException {
+		WebElement collectionSelected = collection.findElement(By.xpath("//a[contains(text(), '" + collectionName + "')]"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(collectionSelected);
+		Thread.sleep(3000);
+		collectionSelected.click();
 	}
 	
 	
@@ -76,9 +81,13 @@ public class PageResults extends BannerHeader{
 		}
 	}
 	
-	public PageItem clickOnItemSelected(WebDriver driver) {
+	public PageItem clickOnItemSelected(WebDriver driver) throws InterruptedException {
+		WebElement itemToClick = itemSelected.findElement(By.xpath("div[@class='product-content text-center']/a"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(itemToClick);
+		Thread.sleep(3000);
+		itemToClick.click();
 		
-		itemSelected.findElement(By.xpath("div[@class='product-content text-center']/a")).click();
 		return PageFactory.initElements(driver, PageItem.class);
 	}
 	
@@ -94,10 +103,11 @@ public class PageResults extends BannerHeader{
 		return itemSelected.findElement(By.xpath("div/div/div/a[@class='addToCart']"));
 	}
 	
-	public void clickAddToCartButton(WebDriver driver) {
+	public void clickAddToCartButton(WebDriver driver) throws InterruptedException {
 		WebElement addToCartButton = itemSelected.findElement(By.xpath("div/div/div/a[@class='addToCart']"));
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.elementToBeClickable(addToCartButton));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(addToCartButton);
+		Thread.sleep(3000);
 		addToCartButton.click();
 	}
 	

@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -22,7 +23,7 @@ public class PageShoppingCart {
 	private WebElement recalculateBt;
 	
 	@FindBy(xpath = "//a[contains(.,'Effectuer le paiement')]")
-	private WebElement MakePaymenteBt;
+	private WebElement makePaymenteBt;
 	
 	@FindBy(xpath = "//table[@id=\"mainCartTable\"]/tbody/tr")
 	List<WebElement> itemsList;
@@ -34,8 +35,11 @@ public class PageShoppingCart {
 		recalculateBt.click();
 	}
 	
-	public Pagecheckout clickOnBtMakePayment(WebDriver driver) {
-		MakePaymenteBt.click();
+	public Pagecheckout clickOnBtMakePayment(WebDriver driver) throws InterruptedException {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(makePaymenteBt);
+		Thread.sleep(3000);
+		makePaymenteBt.click();
 		return PageFactory.initElements(driver, Pagecheckout.class);
 	}
 

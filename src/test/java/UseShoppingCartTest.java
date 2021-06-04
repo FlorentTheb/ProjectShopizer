@@ -25,7 +25,7 @@ public class UseShoppingCartTest extends AbstractTest {
 	}
 	
 	@Test
-	public void run() {
+	public void run() throws InterruptedException {
 		
 		
 		driver.get(URL);
@@ -48,6 +48,7 @@ public class UseShoppingCartTest extends AbstractTest {
 		
 		page_ShoppingCart.clickOnBtRecalculate();
 		
+		Thread.sleep(2000);
 		Pagecheckout page_Checkout = page_ShoppingCart.clickOnBtMakePayment(driver);
 		
 		

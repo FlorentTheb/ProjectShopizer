@@ -43,8 +43,6 @@ public abstract class AbstractTest {
 	public void getBrowserFromProperty() {
 		String BROWSER = System.getProperty("browser");
 		shopizerURL = System.getProperty("shopizerURL");
-//		String BROWSER = "edge";
-		shopizerURL = "http://dta5.hopto.org:8082/shopizer";
 		switch (BROWSER) {
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
